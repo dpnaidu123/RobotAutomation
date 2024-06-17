@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-06-13T22:28:25.494826" rpa="false" schemaversion="5">
+<suite id="s1" name="TC1" source="C:\Users\Dell\PycharmProjects\RFAutomation\TestCases\TC1.robot">
+<test id="s1-t1" name="To Verify the Correct Dashboard Message after Login" line="14">
+<kw name="PreCondition" owner="common" type="SETUP">
+<kw name="Open Browser To Login Page" owner="common">
+<kw name="Setup chromedriver" owner="common">
+<kw name="Set Environment Variable" owner="OperatingSystem">
+<msg time="2024-06-13T22:28:25.796782" level="INFO">Environment variable 'webdriver.chrome.driver' set to value 'C:/Program Files/Chrome Driver/chromedriver.exe'.</msg>
+<arg>webdriver.chrome.driver</arg>
+<arg>${CHROMEDRV}</arg>
+<doc>Sets an environment variable to a specified value.</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="0.000000"/>
+</kw>
+<doc>Setup chromedriver environment variable</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-06-13T22:28:25.796782" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000202B40AD490&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>incognito</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-06-13T22:28:25.796782" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2024-06-13T22:28:26.650212" level="WARN">The chromedriver version (125.0.6422.141) detected in PATH at C:\Program Files\Chrome Driver\chromedriver.exe might not be compatible with the detected chrome version (126.0.6478.56); currently, chromedriver 126.0.6478.55 is recommended for chrome 126.*, so it is advised to delete the driver in PATH and retry</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="3.348362"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-06-13T22:28:29.145144" level="INFO">Opening url 'https://app.vwo.com/'</msg>
+<arg>${LoginUrl}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-06-13T22:28:29.145144" elapsed="8.253034"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-13T22:28:37.398178" elapsed="0.075783"/>
+</kw>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="11.677179"/>
+</kw>
+<doc>This is the PreCondition</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="11.678282"/>
+</kw>
+<kw name="Login Using Valid Credentials" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//input[@id="login-username"]</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-13T22:28:37.483458" elapsed="0.150889"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-13T22:28:37.636098" level="INFO">Typing text 'diyyalao33@gmail.com' into text field '//input[@id="login-username"]'.</msg>
+<arg>//input[@id="login-username"]</arg>
+<arg>${EmailAddress}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-13T22:28:37.634347" elapsed="0.466776"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:login-password</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-13T22:28:38.101123" elapsed="0.065760"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-13T22:28:38.167387" level="INFO">Typing text 'Raina143@' into text field '//input[@id="login-password"]'.</msg>
+<arg>//input[@id="login-password"]</arg>
+<arg>${Password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-13T22:28:38.167387" elapsed="0.241730"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>//button[@id='js-login-btn']</arg>
+<arg>40</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-13T22:28:38.409117" elapsed="0.024628"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-06-13T22:28:38.433745" level="INFO">Clicking element '//button[@id='js-login-btn']'.</msg>
+<arg>//button[@id='js-login-btn']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-13T22:28:38.433745" elapsed="0.144908"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-06-13T22:28:41.581527" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-06-13T22:28:38.578653" elapsed="3.002874"/>
+</kw>
+<status status="PASS" start="2024-06-13T22:28:37.483458" elapsed="4.098069"/>
+</kw>
+<kw name="Verify that Dashboard Message after Login" owner="keywordsTC1">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>${userNameOnDashboard}</arg>
+<arg>50</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-06-13T22:28:41.586325" elapsed="1.966752"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-06-13T22:28:43.605576" level="INFO">${message} = Praveen Diyyala</msg>
+<var>${message}</var>
+<arg>${userNameOnDashboard}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-13T22:28:43.553077" elapsed="0.052499"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-06-13T22:28:43.606535" level="INFO">The dashboard message is: Praveen Diyyala</msg>
+<arg>The dashboard message is: ${message}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-06-13T22:28:43.606205" elapsed="0.000330"/>
+</kw>
+<status status="PASS" start="2024-06-13T22:28:41.584238" elapsed="2.022457"/>
+</kw>
+<kw name="PostCondition" owner="common" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-13T22:28:43.606695" elapsed="2.318073"/>
+</kw>
+<status status="PASS" start="2024-06-13T22:28:43.606695" elapsed="2.318073"/>
+</kw>
+<doc>To Verify the Correct Dashboard Message after Login</doc>
+<status status="PASS" start="2024-06-13T22:28:25.796782" elapsed="20.127986"/>
+</test>
+<test id="s1-t2" name="Compare the Dashboard Message" line="19">
+<doc>Compare the dashboard message with the expected value</doc>
+<status status="FAIL" start="2024-06-13T22:28:45.924768" elapsed="0.000000">Test cannot be empty.</status>
+</test>
+<doc>Tc1-print the Dashboard Message</doc>
+<status status="FAIL" start="2024-06-13T22:28:25.496829" elapsed="20.427939"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="TC1">TC1</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-06-13T22:28:26.650212" level="WARN">The chromedriver version (125.0.6422.141) detected in PATH at C:\Program Files\Chrome Driver\chromedriver.exe might not be compatible with the detected chrome version (126.0.6478.56); currently, chromedriver 126.0.6478.55 is recommended for chrome 126.*, so it is advised to delete the driver in PATH and retry</msg>
+</errors>
+</robot>
